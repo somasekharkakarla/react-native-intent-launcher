@@ -2,6 +2,20 @@ def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://mvnrepository.com/artifact/com.android.tools.lint/lint-gradle-api'
+        }
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:7.1.1")
+    }
+}
+
 apply plugin: "com.android.library"
 
 android {
